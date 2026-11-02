@@ -16,6 +16,8 @@ jobs:
       - name: Download OCR language data
         shell: pwsh
         run: ./scripts/Install-Tessdata.ps1
+      - name: Restore
+        run: dotnet restore MiOcrPotente.sln -r win-x64
       - name: Build
         run: dotnet build MiOcrPotente.sln -c Release --no-restore
       - name: Publish
